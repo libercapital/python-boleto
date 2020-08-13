@@ -437,23 +437,25 @@ class BoletoPDF(object):
         # De baixo para cima posicao 0,0 esta no canto inferior esquerdo
         self.pdf_canvas.setFont('Helvetica', self.font_size_title)
 
-        y = 1.5 * self.height_line
+        y = 2.0 * self.height_line
         self.pdf_canvas.drawRightString(
             self.width,
-            (1.5 * self.height_line) + self.delta_title - 1,
+            (2.0 * self.height_line) + self.delta_title - 1,
             'Autenticação Mecânica / Ficha de Compensação'
         )
 
-        # Primeira linha depois do codigo de barra
-        y += self.height_line
-        self.pdf_canvas.setLineWidth(2)
-        self.__horizontalLine(0, y, self.width)
         self.pdf_canvas.drawString(
-            self.width - (45 * mm) + self.space,
-            y + self.space, 'Código de baixa'
+            0,
+            (2.0 * self.height_line) + self.delta_title - 1,
+            'Sacador / Avalista'
         )
-        self.pdf_canvas.drawString(0, y + self.space, 'Sacador / Avalista')
+        self.pdf_canvas.drawString(
+            self.width - (160 * mm) + self.space,
+            (2.0 * self.height_line) + self.delta_title - 1,
+            boleto_dados.sacador_avalista
+        )
 
+        # Primeira linha depois do codigo de barra
         y += self.height_line
         self.pdf_canvas.drawString(0, y + self.delta_title, 'Pagador')
         sacado = boleto_dados.sacado
