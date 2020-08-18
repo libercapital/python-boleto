@@ -30,6 +30,13 @@ class BoletoBradesco(BoletoData):
         self.local_pagamento = 'Pagável Preferencialmente ' +\
             'na Rede Bradesco ou Bradesco Expresso.'
 
+    @property
+    def agencia_conta_cedente(self):
+        return "%s-%s/%s-%s" % (self.agencia_cedente,
+                                self.agencia_cedente_dv,
+                                self.conta_cedente,
+                                self.conta_cedente_dv)
+
     def format_nosso_numero(self):
         return "%s/%s-%s" % (
             self.carteira,

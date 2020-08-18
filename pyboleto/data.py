@@ -131,6 +131,7 @@ class BoletoData(object):
         #        the barcode.
         self.aceite = kwargs.pop('aceite', "N")
         self.agencia_cedente = kwargs.pop('agencia_cedente', "")
+        self.agencia_cedente_dv = kwargs.pop('agencia_cedente_dv', "")
         self.carteira = kwargs.pop('carteira', "")
         self.cedente = kwargs.pop('cedente', "")
         self.cedente_cidade = kwargs.pop('cedente_cidade', "")
