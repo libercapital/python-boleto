@@ -457,6 +457,14 @@ class BoletoPDF(object):
 
         # Primeira linha depois do codigo de barra
         y += self.height_line
+        self.pdf_canvas.setLineWidth(2)
+        self.__horizontalLine(0, y, self.width)
+        self.pdf_canvas.drawString(
+            self.width - (45 * mm) + self.space,
+            y + self.space, 'Código de baixa'
+        )
+
+        y += self.height_line
         self.pdf_canvas.drawString(0, y + self.delta_title, 'Pagador')
         sacado = boleto_dados.sacado
 
